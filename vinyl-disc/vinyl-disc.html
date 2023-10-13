@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .vinyl-disc {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .playing {
+            animation: rotate-disc 9s linear infinite;
+        }
+
+        .vinyl-disc .circle-2 {
+            width: 50%;
+            height: 50%;
+            background-image: url(1.png);
+            background-size: cover;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .vinyl-disc .circle-3 {
+            width: 30%;
+            height: 30%;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes rotate-disc {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="vinyl-disc" id="vinyl-disc">
+        <div class="circle-2">
+            <div class="circle-3"></div>
+        </div>
+    </div>
+    <audio id="audio" src="1.mp3" type="audio/mp3"></audio>
+    <script>
+        const vinylDisc = document.getElementById("vinyl-disc");
+        const audio = document.getElementById("audio");
+
+        let isPlaying = true;
+
+        vinylDisc.addEventListener("click", () => {
+            if (isPlaying) {
+                audio.pause();
+                vinylDisc.classList.remove("playing");
+            } else {
+                audio.play();
+                vinylDisc.classList.add("playing");
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Khi trang đã tải hoàn toàn
+        document.addEventListener("DOMContentLoaded", function () {
+            const audio = document.getElementById("audio");
+            const vinylDisc = document.getElementById("vinyl-disc");
+            audio.play();
+            vinylDisc.classList.add("playing");
+        });
+    </script>
+</body>
+</html>
