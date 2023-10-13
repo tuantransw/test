@@ -1,87 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        .vinyl-disc {
-            width: 50px;
-            height: 50px;
-            background-color: black;
-            border-radius: 50%;
-            position: relative;
-            cursor: pointer;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 
-        .playing {
-            animation: rotate-disc 9s linear infinite;
-        }
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-        .vinyl-disc .circle-2 {
-            width: 50%;
-            height: 50%;
-            background-image: url(1.png);
-            background-size: cover;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+#myImg:hover {opacity: 0.7;}
 
-        .vinyl-disc .circle-3 {
-            width: 30%;
-            height: 30%;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
 
-        @keyframes rotate-disc {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
-    <title>Document</title>
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
 </head>
 <body>
-    <div class="vinyl-disc" id="vinyl-disc">
-        <div class="circle-2">
-            <div class="circle-3"></div>
-        </div>
-    </div>
-    <audio id="audio" src="1.mp3" type="audio/mp3"></audio>
-    <script>
-        const vinylDisc = document.getElementById("vinyl-disc");
-        const audio = document.getElementById("audio");
+    
+<img id="myImg" src="../assets/1.png" alt="Snow" style="width:100%;max-width:300px">
 
-        let isPlaying = true;
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
 
-        vinylDisc.addEventListener("click", () => {
-            if (isPlaying) {
-                audio.pause();
-                vinylDisc.classList.remove("playing");
-            } else {
-                audio.play();
-                vinylDisc.classList.add("playing");
-            }
-            isPlaying = !isPlaying;
-        });
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
 
-        // Khi trang đã tải hoàn toàn
-        document.addEventListener("DOMContentLoaded", function () {
-            const audio = document.getElementById("audio");
-            const vinylDisc = document.getElementById("vinyl-disc");
-            audio.play();
-            vinylDisc.classList.add("playing");
-        });
-    </script>
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
 </body>
 </html>
