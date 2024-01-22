@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: AvenirNextLTPro-Bold\.otf;
+    src: url(fonts/AvenirNextLTPro-Bold.otf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: AvenirNextLTPro-Regular\.otf;
+    src: url(fonts/AvenirNextLTPro-Regular.otf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: iCielDomaineDisplay-Bold\.ttf;
+    src: url(fonts/iCielDomaineDisplay-Bold.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: iCielDomaineDisplay-Demibold\.ttf;
+    src: url(fonts/iCielDomaineDisplay-Demibold.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: iCielDomaineDisplay-Medium\.ttf;
+    src: url(fonts/iCielDomaineDisplay-Medium.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: iCielDomaineDisplay-Regular\.ttf;
+    src: url(fonts/iCielDomaineDisplay-Regular.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: AVENIRNEXT-BOLD\.TTF;
+    src: url(fonts/AVENIRNEXT-BOLD.TTF) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: AVENIRNEXT-DEMIBOLD\.TTF;
+    src: url(fonts/AVENIRNEXT-DEMIBOLD.TTF) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: AVENIRNEXT-MEDIUM\.TTF;
+    src: url(fonts/AVENIRNEXT-MEDIUM.TTF) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: AVENIRNEXT-REGULAR\.TTF;
+    src: url(fonts/AVENIRNEXT-REGULAR.TTF) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: "9SLIDE06JOYFUL.ttf";
+    src: url(fonts/9SLIDE06JOYFUL.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+  
+  @font-face {
+    font-family: DancingScript;
+    src: url(fonts/DancingScript-Bold.ttf);
+  }
+
+.home {
+    /* Background */
+    background-color: bisque;
+    background-position: top;
+    background-size: cover;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    position: relative;
+}
+
+.group-text {
+    position: absolute;
+    top:55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center!important;
+}
+
+.test {
+    font-family: "9SLIDE06JOYFUL.ttf";
+}
+
+.test1 {
+    font-family: iCielDomaineDisplay-Demibold\.ttf;
+}
+.test2 {
+    font-family: AVENIRNEXT-REGULAR\.TTF;
+}
